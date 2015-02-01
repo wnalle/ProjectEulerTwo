@@ -3,14 +3,21 @@
  */
 public class ProjectEulerTwo {
   public static void main(String[] args) {
-    int sum = 2;
-    int fib = 2;
+    int sum = 0;
+    int curFib = 1;
+    int prevFib = 0;
 
-    for (int i = 3; i < 4000000; i += fib) {
+    for (int i = 2; i < 4000000; ) {
+
+      System.out.printf("i = %d\n", i);
+
       if (i % 2 == 0) {
         sum += i;
       }
-      fib += i;
+      prevFib = curFib;
+      curFib = i;
+      i += prevFib;
+
     }
 
     System.out.println("The sum of the even-valued terms is " + sum);
